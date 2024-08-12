@@ -1,0 +1,17 @@
+/* CanvasStyle.css */
+
+/* Ensure the canvas container doesn't stretch */
+.gameCanvas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f7ffb0; /* Adjust background as needed */
+  height: 100%; /* Let it take up the full height */
+}
+
+/* Style the canvas */
+canvas {
+  background-color: #ecc8ff; /* White background for the canvas */
+  border: 5px solid #000; /* Black border around the canvas */
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.4); /* Optional shadow for effect */
+}

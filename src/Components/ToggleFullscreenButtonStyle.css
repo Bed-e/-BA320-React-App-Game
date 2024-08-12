@@ -1,0 +1,36 @@
+/* App.css or index.css */
+.fullscreen-button {
+  position: fixed; /* Keep the button fixed to the top-right corner */
+  top: 20px;
+  right: 20px;
+  width: 70px; /* Increase the size */
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 65px; /* Increase the size of the arrow */
+  cursor: pointer;
+  background-color: #fffbcc; /* Pastel yellow background */
+  color: rgb(0, 0, 0);
+  border: 3px solid #f0c05a; /* Dandelion or golden border */
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  z-index: 1000; /* Ensure it's on top of other elements */
+}
+
+.fullscreen-button:hover {
+  background-color: #ffeb99; /* Slightly darker pastel yellow on hover */
+}
+
+.icon {
+  transform: scale(1.2);
+}
+
+.icon-exit {
+  transform: rotate(90deg); /* Arrow pointing bottom-left */
+}
+
+.icon-enter {
+  transform: rotate(0deg); /* Arrow pointing top-right */
+}
