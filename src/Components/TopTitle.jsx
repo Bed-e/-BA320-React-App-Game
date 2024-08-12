@@ -1,7 +1,7 @@
 import React from "react";
 
 function TopTitle() {
-  return <h1>Canvas Crash Course</h1>;
+  return <h1>Great Game!</h1>;
 }
 
 export default TopTitle;

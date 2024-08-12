@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import PlayerRectangle from "./PlayerRectangle";
+import GameLoop from "../GameLoop";
 import "./CanvasStyle.css";
 
 const Canvas = () => {
@@ -9,14 +9,12 @@ const Canvas = () => {
     const canvas = canvasRef.current;
     canvas.width = 800;
     canvas.height = 600;
+
+    const gameLoop = new GameLoop(canvas);
+    gameLoop.start();
   }, []);
 
-  return (
-    <div className="gameCanvas">
-      <canvas ref={canvasRef} />
-      <PlayerRectangle canvasRef={canvasRef} />
-    </div>
-  );
+  return <canvas ref={canvasRef} className="gameCanvas" />;
 };
 
 export default Canvas;
