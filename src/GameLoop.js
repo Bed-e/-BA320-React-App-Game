@@ -5,7 +5,7 @@ class GameLoop {
   constructor(canvas) {
     this.canvas = canvas;
     this.ctx = canvas.getContext("2d");
-    this.player = new Player(10, 10, 20, 20, 2);
+    this.player = new Player(400, 300, 20, 20, 2);
     this.enemies = [];
     this.time = 0;
     this.enemyCount = 1; // Initial number of enemies to add

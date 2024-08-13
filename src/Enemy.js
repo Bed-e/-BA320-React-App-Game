@@ -58,7 +58,7 @@ class Enemy {
   calculateSeparation(enemies) {
     let separationX = 0;
     let separationY = 0;
-    const separationDistance = this.size * 2.5;
+    const separationDistance = this.size * 1.2;
 
     enemies.forEach((other) => {
       if (other !== this) {

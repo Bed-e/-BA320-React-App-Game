@@ -18,5 +18,11 @@ html {
   align-items: center;
   height: 100vh;
   width: 100vw;
-  background-color: #004e05; /* Background color for the entire app */
+  background-color: #c7fdc5; /* Background color for the entire app */
+}
+
+.timer {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
 }

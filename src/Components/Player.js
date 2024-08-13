@@ -20,10 +20,20 @@ class Player {
 
   // Handle movement
   move() {
-    if (this.keysPressed.ArrowUp) this.y -= this.speed;
-    if (this.keysPressed.ArrowDown) this.y += this.speed;
-    if (this.keysPressed.ArrowLeft) this.x -= this.speed;
-    if (this.keysPressed.ArrowRight) this.x += this.speed;
+    let moveX = 0;
+    let moveY = 0;
+
+    if (this.keysPressed.ArrowUp) moveY -= 1;
+    if (this.keysPressed.ArrowDown) moveY += 1;
+    if (this.keysPressed.ArrowLeft) moveX -= 1;
+    if (this.keysPressed.ArrowRight) moveX += 1;
+
+    // If moving diagonally, normalize speed by dividing by sqrt(2)
+    const isDiagonal = moveX !== 0 && moveY !== 0;
+    const speedAdjustment = isDiagonal ? 1 / Math.sqrt(2) : 1;
+
+    this.x += moveX * this.speed * speedAdjustment;
+    this.y += moveY * this.speed * speedAdjustment;
   }
 
   // Draw player on the canvas
