@@ -6,21 +6,24 @@ import Timer from "./Components/Timer";
 import { useState, useEffect } from "react";
 
 function App() {
-  const [time, setTime] = useState(0); // Initialize state for time
+  const [time, setTime] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(true);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setTime((prevTime) => prevTime + 0.01); // Increment time every 100ms
-    }, 10);
-    return () => clearInterval(interval); // Cleanup interval on unmount
-  }, []);
+    if (isPlaying) {
+      const interval = setInterval(() => {
+        setTime((prevTime) => prevTime + 0.01);
+      }, 10);
+      return () => clearInterval(interval);
+    }
+  }, [isPlaying]);
 
   return (
     <div className="page">
       <TopTitle />
-      <Timer time={time} /> {/* Pass the time state to Timer component */}
-      <Canvas setTime={setTime} />{" "}
-      {/* Pass setTime to Canvas to control time from the game loop */}
+      <Timer time={time} isPlaying={isPlaying} />
+      {/* Pass isPlaying to Timer component */}
+      <Canvas setTime={setTime} setIsPlaying={setIsPlaying} />
       <ToggleFullscreenButton />
     </div>
   );

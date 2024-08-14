@@ -2,14 +2,17 @@ import Player from "./Components/Player";
 import Enemy from "./Enemy";
 
 class GameLoop {
-  constructor(canvas) {
+  constructor(canvas, setIsPlaying) {
     this.canvas = canvas;
     this.ctx = canvas.getContext("2d");
     this.player = new Player(400, 300, 20, 20, 2);
-    this.enemies = [];
+    this.enemies = [new Enemy(1000, 1000, 20, 1)];
     this.time = 0;
     this.enemyCount = 1; // Initial number of enemies to add
     this.addEnemiesInterval = 10000; // 10 seconds in milliseconds
+    this.setIsPlaying = setIsPlaying;
+    this.lastTimestamp = performance.now(); // Initial timestamp
+    this.gameSpeed = 2; // Default game speed
   }
 
   start() {
@@ -21,18 +24,33 @@ class GameLoop {
   }
 
   update() {
+    // Calculate delta time and adjust for game speed
+    const currentTimestamp = performance.now();
+    const deltaTime = (currentTimestamp - this.lastTimestamp) * this.gameSpeed;
+    this.lastTimestamp = currentTimestamp;
+
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-    this.player.move();
+    // Update and draw player
+    this.player.move(deltaTime);
     this.player.draw(this.ctx);
 
+    // Update and draw enemies
     this.enemies.forEach((enemy) => {
-      enemy.moveToward(this.player, this.enemies);
+      enemy.moveToward(this.player, this.enemies, deltaTime);
       enemy.draw(this.ctx);
     });
 
+    // Collision detection
+    this.enemies.forEach((enemy) => {
+      if (this.checkCollision(enemy, this.player)) {
+        this.setIsPlaying(false); // Toggle isPlaying to false when collision occurs
+        console.log(`setIsPlaying  ${setIsPlaying}`);
+      }
+    });
+
     // Update game time
-    this.time += 16.67; // Approximate time per frame at 60fps
+    this.time += deltaTime; // Use deltaTime for more accurate timing
 
     // Add enemies every 10 seconds
     if (this.time >= this.addEnemiesInterval) {
@@ -40,7 +58,16 @@ class GameLoop {
       this.time = 0; // Reset the timer
     }
 
-    requestAnimationFrame(() => this.update());
+    if (this.setIsPlaying) {
+      requestAnimationFrame(() => this.update());
+    }
+  }
+
+  checkCollision(enemy, player) {
+    const dx = enemy.x - (player.x + player.width / 2);
+    const dy = enemy.y - (player.y + player.height / 2);
+    const distance = Math.sqrt(dx * dx + dy * dy);
+    return distance < enemy.size / 2 + player.width / 2;
   }
 
   addEnemies() {

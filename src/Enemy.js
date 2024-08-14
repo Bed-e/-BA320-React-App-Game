@@ -8,7 +8,7 @@ class Enemy {
     this.damping = 0.99; // Damping to maintain momentum
     this.turnRate = 0.04; // Slower turn rate for gradual direction change
     this.acceleration = 0.1; // Rate at which speed builds when accelerating
-    this.maxSpeed = this.speed * 2.5; // Allow for higher max speed when accelerating
+    this.maxSpeed = this.speed * 5; // Allow for higher max speed when accelerating
   }
 
   moveToward(player, enemies) {
@@ -45,8 +45,8 @@ class Enemy {
   }
 
   calculateAttraction(player) {
-    const dx = player.x + player.width / 2 - (this.x + this.size / 2);
-    const dy = player.y + player.height / 2 - (this.y + this.size / 2);
+    const dx = player.x + player.width / 2 - this.x;
+    const dy = player.y + player.height / 2 - this.y;
     const distance = Math.sqrt(dx * dx + dy * dy);
 
     return {
