@@ -1,9 +1,16 @@
 /* Ensure the canvas container centers the canvas */
-.gameCanvas {
+.gameCanvasAlive {
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #f7ffb0; /* Adjust background as needed */
+}
+
+.gameCanvasDead {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ff534d; /* Adjust background as needed */
 }
 
 /* Style the canvas with fixed dimensions */

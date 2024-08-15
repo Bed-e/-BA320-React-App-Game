@@ -2,12 +2,13 @@ import Player from "./Components/Player";
 import Enemy from "./Enemy";
 
 class GameLoop {
-  constructor(canvas, setIsPlaying) {
+  constructor(canvas, setIsPlaying, isPlaying) {
     this.canvas = canvas;
     this.ctx = canvas.getContext("2d");
     this.player = new Player(400, 300, 20, 20, 2);
     this.enemies = [new Enemy(1000, 1000, 20, 1)];
     this.time = 0;
+    this.isPlaying = isPlaying;
     this.enemyCount = 1; // Initial number of enemies to add
     this.addEnemiesInterval = 10000; // 10 seconds in milliseconds
     this.setIsPlaying = setIsPlaying;
@@ -45,7 +46,6 @@ class GameLoop {
     this.enemies.forEach((enemy) => {
       if (this.checkCollision(enemy, this.player)) {
         this.setIsPlaying(false); // Toggle isPlaying to false when collision occurs
-        console.log(`setIsPlaying  ${setIsPlaying}`);
       }
     });
 
@@ -58,7 +58,7 @@ class GameLoop {
       this.time = 0; // Reset the timer
     }
 
-    if (this.setIsPlaying) {
+    if (this.isPlaying) {
       requestAnimationFrame(() => this.update());
     }
   }
