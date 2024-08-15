@@ -10,7 +10,7 @@ class GameLoop {
     this.time = 0;
     this.isPlaying = isPlaying;
     this.enemyCount = 1; // Initial number of enemies to add
-    this.addEnemiesInterval = 10000; // 10 seconds in milliseconds
+    this.addEnemiesInterval = 20000; // 10 seconds in milliseconds
     this.setIsPlaying = setIsPlaying;
     this.lastTimestamp = performance.now(); // Initial timestamp
     this.gameSpeed = 2; // Default game speed
