@@ -70,7 +70,7 @@ function App() {
 
   const fetchWeather = async (loc) => {
     const apiKey = import.meta.env.VITE_REACT_APP_WEATHER_API_KEY;
-    console.log(apiKey);
+    //console.log(apiKey);
 
     const lat = loc.lat;
     const lon = loc.lon;
