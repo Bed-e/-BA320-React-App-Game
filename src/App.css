@@ -1,4 +1,5 @@
-/* App.css or index.css */
+/* App.css */
+
 body,
 html {
   margin: 0;
@@ -7,72 +8,58 @@ html {
   width: 100%;
 }
 
-#root {
-  height: 100%;
-  width: 100%;
+.body {
+  display: flex;
+  flex-direction: column; /* Arrange items in a column */
+  justify-content: center; /* Center items vertically */
+  align-items: center; /* Center items horizontally */
+  height: 100vh;
+  width: 100vw;
 }
 
-.clear {
+.clear,
+.clouds,
+.fog,
+.snow,
+.rain,
+.drizzle,
+.storm {
   display: flex;
+  flex-direction: column; /* Ensure items are arranged in a column for all weather types */
   justify-content: center;
   align-items: center;
   height: 100vh;
   width: 100vw;
-  background-color: #b4faff; /* Background color for the entire app */
+  background-color: #b4faff; /* Default background color */
+}
+
+/* Specific background colors for each weather type */
+.clear {
+  background-color: #b4faff;
 }
 
 .clouds {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100vw;
-  background-color: #c0dedf; /* Background color for the entire app */
+  background-color: #c0dedf;
 }
 
 .fog {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100vw;
-  background-color: #7a7a7a; /* Background color for the entire app */
+  background-color: #7a7a7a;
 }
 
 .snow {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100vw;
-  background-color: #ffffff; /* Background color for the entire app */
+  background-color: #ffffff;
 }
 
 .rain {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100vw;
-  background-color: #2f5b80; /* Background color for the entire app */
+  background-color: #2f5b80;
 }
 
 .drizzle {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100vw;
-  background-color: #288bb3; /* Background color for the entire app */
+  background-color: #288bb3;
 }
 
 .storm {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100vw;
-  background-color: #384e5f; /* Background color for the entire app */
+  background-color: #384e5f;
 }
 
 .timer {

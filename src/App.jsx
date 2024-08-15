@@ -4,6 +4,7 @@ import "./App.css";
 import TopTitle from "./Components/TopTitle";
 import Timer from "./Components/Timer";
 import { useState, useEffect } from "react";
+import Description from "./Components/Description";
 
 function App() {
   const [time, setTime] = useState(0);
@@ -11,6 +12,7 @@ function App() {
   const [location, setLocation] = useState(null); // Initialize as null
   const [weather, setWeather] = useState("clouds");
   const [nightMode, setNightMode] = useState(false);
+  const [city, setCity] = useState("nowhere");
 
   useEffect(() => {
     if (navigator.geolocation) {
@@ -80,7 +82,8 @@ function App() {
         throw new Error("Failed to fetch weather data");
       }
       const data = await response.json();
-      console.log(data);
+      //console.log(data);
+      setCity(data.name);
       const weatherid = data.weather[0].id;
       let weatherType = "";
       //console.log(weatherid);
@@ -115,7 +118,7 @@ function App() {
   };
 
   return (
-    <div className={`${weather} ${nightMode ? "night-mode" : ""}`}>
+    <div className={` body ${weather} ${nightMode ? "night-mode" : ""}`}>
       <TopTitle />
       <Timer time={time} isPlaying={isPlaying} />
       <Canvas
@@ -125,6 +128,7 @@ function App() {
         isPlaying={isPlaying}
       />
       <ToggleFullscreenButton />
+      <Description weather={weather} city={city} />
     </div>
   );
 }

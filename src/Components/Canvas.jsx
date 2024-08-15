@@ -20,7 +20,6 @@ const Canvas = ({ weather, setTime, setIsPlaying, isPlaying }) => {
 
   return (
     <>
-      <h1>{weather}</h1>
       <canvas
         ref={canvasRef}
         className={isPlaying ? "gameCanvasAlive" : "gameCanvasDead"}
