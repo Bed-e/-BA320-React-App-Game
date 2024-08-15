@@ -72,3 +72,27 @@ html {
   background-color: #2c3e50; /* Darker background for night mode */
   filter: brightness(70%); /* Optional filter for night mode */
 }
+
+/* className={isPlaying ? "smallFontTimer" : "largeFontTimer"} */
+.largeFontTimer {
+  font-size: 60px;
+}
+
+.center {
+  display: flex;
+  justify-content: center; /* Centers the Canvas horizontally */
+  align-items: center; /* Aligns the items vertically at the same level */
+}
+
+.center canvas {
+  flex-shrink: 0; /* Prevent the canvas from shrinking */
+  width: 800px; /* Set a fixed width for the canvas */
+  height: 600px; /* Set a fixed height for the canvas */
+}
+
+.center .description {
+  flex-grow: 1; /* Allow the description to take up the remaining space */
+  padding-left: 20px; /* Optional: Adds space between the canvas and description */
+  max-width: 300px; /* Optional: Limits the maximum width of the description */
+  box-sizing: border-box; /* Ensures padding is included in the element's total width */
+}

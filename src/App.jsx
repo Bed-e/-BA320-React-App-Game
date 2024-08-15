@@ -69,10 +69,11 @@ function App() {
   }, []);
 
   const fetchWeather = async (loc) => {
-    console.log("hello");
+    const apiKey = import.meta.env.VITE_REACT_APP_WEATHER_API_KEY;
+    console.log(apiKey);
+
     const lat = loc.lat;
     const lon = loc.lon;
-    const apiKey = "e9eb609675cb8f6049e4a7eafd99097c"; // Replace with your actual API key
     const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`;
     //console.log(url);
 
@@ -120,15 +121,22 @@ function App() {
   return (
     <div className={` body ${weather} ${nightMode ? "night-mode" : ""}`}>
       <TopTitle />
-      <Timer time={time} isPlaying={isPlaying} />
-      <Canvas
-        weather={weather}
-        setTime={setTime}
-        setIsPlaying={setIsPlaying}
+      <Timer
+        time={time}
         isPlaying={isPlaying}
+        className={isPlaying ? "" : "largeFontTimer"}
       />
+      <div className="center">
+        <Canvas
+          weather={weather}
+          setTime={setTime}
+          setIsPlaying={setIsPlaying}
+          isPlaying={isPlaying}
+        />
+        <Description weather={weather} city={city} className={Description} />
+      </div>
+
       <ToggleFullscreenButton />
-      <Description weather={weather} city={city} />
     </div>
   );
 }
