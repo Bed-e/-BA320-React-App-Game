@@ -15,7 +15,7 @@ function Description({ city, weather }) {
 
       <li>
         if you meet the fate of the <strong>RED STORM</strong>,
-        <strong>Refresh</strong> the page to try again
+        <strong> Refresh</strong> the page to try again
       </li>
       <li>
         Come back later when the weather is different or when it's a different
