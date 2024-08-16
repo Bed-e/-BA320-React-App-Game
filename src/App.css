@@ -93,6 +93,10 @@ html {
 .center .description {
   flex-grow: 1; /* Allow the description to take up the remaining space */
   padding-left: 20px; /* Optional: Adds space between the canvas and description */
-  max-width: 300px; /* Optional: Limits the maximum width of the description */
+  max-width: 300px;
   box-sizing: border-box; /* Ensures padding is included in the element's total width */
+}
+
+.night-mode * {
+  color: white; /* Make all text white in night mode */
 }

@@ -3,9 +3,10 @@ import React from "react";
 function Description({ city, weather }) {
   return (
     <ul>
+      <li>{city} is under attack!</li>
       <li>
-        Resist the destruction of {city} for as long as you can by using the
-        arrow keys to avoid the enemies.
+        Protect {city} from the <strong>RED STORM</strong> for as long as you
+        can by using the <em>arrow keys </em>to avoid the enemies.
       </li>
       <li>
         The background changes with the weather in your area and time of day!

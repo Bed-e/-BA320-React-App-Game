@@ -9,7 +9,7 @@ import Description from "./Components/Description";
 function App() {
   const [time, setTime] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
-  const [location, setLocation] = useState(null); // Initialize as null
+  const [location, setLocation] = useState(null);
   const [weather, setWeather] = useState("clouds");
   const [nightMode, setNightMode] = useState(false);
   const [city, setCity] = useState("nowhere");
@@ -119,7 +119,7 @@ function App() {
   };
 
   return (
-    <div className={` body ${weather} ${nightMode ? "night-mode" : ""}`}>
+    <div className={` body  ${weather} ${nightMode ? "night-mode" : ""}`}>
       <TopTitle />
       <Timer
         time={time}
